@@ -1,0 +1,24 @@
+<table class="table" *ngIf="(CARS).length > 0;">
+  <colgroup>
+    <col width="5%">
+    <col width="*">
+    <col width="35%">
+    <col width="15%">
+  </colgroup>
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Brand</th>
+    <th scope="col">Model</th>
+    <th scope="col">Year</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of CARS; let i = index">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{car.brand}}</td>
+    <td>{{car.model}}</td>
+    <td>{{car.year}}</td>
+  </tr>
+  </tbody>
+</table>
