@@ -1,24 +1,15 @@
-<table class="table table-striped items-table" *ngIf="(CARS).length > 0;">
-  <colgroup>
-    <col width="5%">
-    <col width="*">
-    <col width="35%">
-    <col width="15%">
-  </colgroup>
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Brand</th>
-    <th scope="col">Model</th>
-    <th scope="col">Year</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let car of CARS; let i = index">
-    <th scope="row">{{i + 1}}</th>
-    <td>{{car.brand}}</td>
-    <td>{{car.model}}</td>
-    <td>{{car.year}}</td>
-  </tr>
-  </tbody>
-</table>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-3 mb-sm-0" *ngFor="let product of cars">
+      <div class="card product-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.brand }}</h5>
+          <p class="card-text">Model: {{ product.model }}</p>
+          <p class="card-text">Year: {{ product.year }}</p>
+          <button class="btn btn-primary">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
