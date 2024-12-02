@@ -11,6 +11,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ProductsComponent } from './products/products.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {NgOptimizedImage} from "@angular/common";
+import {MatCardModule} from "@angular/material/card";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    NgOptimizedImage,
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
