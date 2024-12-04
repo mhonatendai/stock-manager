@@ -1,5 +1,5 @@
 {
-  "name": "shop-cart",
+  "name": "stock-manager",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
