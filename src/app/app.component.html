@@ -22,6 +22,12 @@
       </a>
       <a mat-list-item routerLink="/products">
         <span class="entry">
+          <mat-icon>list</mat-icon>
+          <span *ngIf="!isCollapsed">Add New Lines</span>
+        </span>
+      </a>
+      <a mat-list-item routerLink="/products">
+        <span class="entry">
           <mat-icon>books</mat-icon>
           <span *ngIf="!isCollapsed">Reports</span>
         </span>
