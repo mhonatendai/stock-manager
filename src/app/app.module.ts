@@ -14,12 +14,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {NgOptimizedImage} from "@angular/common";
 import {MatCardModule} from "@angular/material/card";
 import {MatChipsModule} from "@angular/material/chips";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     DashboardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
