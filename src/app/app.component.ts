@@ -22,12 +22,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.checkRoute(); // Check the route on initialization
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.checkRoute(); // Check the route on every navigation change
-      });
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.isLoginPage = event.url === '/login';
+    });
     console.log("This is a login page: {}", this.isLoginPage)
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if(screenSize.matches){
@@ -46,9 +45,5 @@ export class AppComponent implements OnInit{
       this.sidenav.open(); // On desktop/tablet, the menu can never be fully closed
       this.isCollapsed = !this.isCollapsed;
     }
-  }
-
-  checkRoute() {
-    this.isLoginPage = this.router.url === '/';
   }
 }
