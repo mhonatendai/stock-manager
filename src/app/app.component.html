@@ -1,46 +1,51 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <h1>Stock Manager</h1>
-</mat-toolbar>
+<div *ngIf="!isLoginPage">
+  <mat-toolbar color="primary">
+    <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Stock Manager</h1>
+  </mat-toolbar>
 
-<mat-sidenav-container autosize>
-  <mat-sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'">
-    <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard">
-        <span class="entry">
-          <mat-icon>house</mat-icon>
-          <span *ngIf="!isCollapsed">Dashboard</span>
-        </span>
-      </a>
-      <a mat-list-item routerLink="/products">
-        <span class="entry">
-          <mat-icon>list</mat-icon>
-          <span *ngIf="!isCollapsed">Product Lines</span>
-        </span>
-      </a>
-      <a mat-list-item routerLink="/receive-stock">
-        <span class="entry">
-          <mat-icon>list</mat-icon>
-          <span *ngIf="!isCollapsed">Receive Stock</span>
-        </span>
-      </a>
-      <a mat-list-item routerLink="/products">
-        <span class="entry">
-          <mat-icon>list</mat-icon>
-          <span *ngIf="!isCollapsed">Add New Lines</span>
-        </span>
-      </a>
-      <a mat-list-item routerLink="/products">
-        <span class="entry">
-          <mat-icon>books</mat-icon>
-          <span *ngIf="!isCollapsed">Reports</span>
-        </span>
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-sidenav-container autosize>
+    <mat-sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard">
+          <span class="entry">
+            <mat-icon>house</mat-icon>
+            <span *ngIf="!isCollapsed">Dashboard</span>
+          </span>
+        </a>
+        <a mat-list-item routerLink="/products">
+          <span class="entry">
+            <mat-icon>list</mat-icon>
+            <span *ngIf="!isCollapsed">Product Lines</span>
+          </span>
+        </a>
+        <a mat-list-item routerLink="/receive-stock">
+          <span class="entry">
+            <mat-icon>list</mat-icon>
+            <span *ngIf="!isCollapsed">Receive Stock</span>
+          </span>
+        </a>
+        <a mat-list-item routerLink="/products">
+          <span class="entry">
+            <mat-icon>list</mat-icon>
+            <span *ngIf="!isCollapsed">Add New Lines</span>
+          </span>
+        </a>
+        <a mat-list-item routerLink="/products">
+          <span class="entry">
+            <mat-icon>books</mat-icon>
+            <span *ngIf="!isCollapsed">Reports</span>
+          </span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+<div *ngIf="isLoginPage">
+  <router-outlet></router-outlet>
+</div>
