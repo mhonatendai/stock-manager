@@ -1,6 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSidenav, MatSidenavModule} from "@angular/material/sidenav";
-import {BreakpointObserver} from "@angular/cdk/layout";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from "@angular/material/sidenav";
+import { BreakpointObserver } from "@angular/cdk/layout";
+import { NavigationEnd, Router } from "@angular/router";
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +16,15 @@ export class AppComponent implements OnInit{
   sidenav!: MatSidenav;
   isMobile= true;
   isCollapsed = true;
+  isLoginPage = false;
 
-
-  constructor(private observer: BreakpointObserver) {}
+  constructor(private observer: BreakpointObserver, private router: Router) {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.isLoginPage = this.router.url === '/' || this.router.url === 'login';
+      });
+  }
 
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
