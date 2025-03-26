@@ -19,14 +19,16 @@ export class AppComponent implements OnInit{
   isLoginPage = false;
 
   constructor(private observer: BreakpointObserver, private router: Router) {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.isLoginPage = this.router.url === '/' || this.router.url === 'login';
-      });
   }
 
   ngOnInit() {
+    this.checkRoute(); // Check the route on initialization
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.checkRoute(); // Check the route on every navigation change
+      });
+    console.log("This is a login page: {}", this.isLoginPage)
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if(screenSize.matches){
         this.isMobile = true;
@@ -44,5 +46,9 @@ export class AppComponent implements OnInit{
       this.sidenav.open(); // On desktop/tablet, the menu can never be fully closed
       this.isCollapsed = !this.isCollapsed;
     }
+  }
+
+  checkRoute() {
+    this.isLoginPage = this.router.url === '/';
   }
 }
