@@ -1,4 +1,4 @@
-<div *ngIf="!isLoginPage">
+<div *ngIf="initialEvaluationComplete && !isLoginPage">
   <mat-toolbar color="primary">
     <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
       <mat-icon>menu</mat-icon>
@@ -46,6 +46,6 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-<div *ngIf="isLoginPage">
+<div *ngIf="initialEvaluationComplete && isLoginPage">
   <app-login></app-login>
 </div>

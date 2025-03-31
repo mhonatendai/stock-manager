@@ -17,6 +17,8 @@ export class AppComponent implements OnInit{
   isMobile= true;
   isCollapsed = true;
   isLoginPage = true;
+  initialEvaluationComplete = false;
+
 
   constructor(private observer: BreakpointObserver, private router: Router) {
   }
@@ -26,6 +28,7 @@ export class AppComponent implements OnInit{
       filter((event): event is NavigationEnd => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.isLoginPage = event.url === '/login';
+      this.initialEvaluationComplete = true;
     });
     console.log("This is a login page: {}", this.isLoginPage)
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
