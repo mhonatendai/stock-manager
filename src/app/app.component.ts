@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   sidenav!: MatSidenav;
   isMobile= true;
   isCollapsed = true;
-  isLoginPage = false;
+  isLoginPage = true;
 
   constructor(private observer: BreakpointObserver, private router: Router) {
   }
