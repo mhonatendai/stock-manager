@@ -31,6 +31,7 @@ export class AppComponent implements OnInit{
       this.initialEvaluationComplete = true;
     });
     console.log("This is a login page: {}", this.isLoginPage)
+    console.log("This is a login page initialEvaluationComplete: {}", this.initialEvaluationComplete)
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if(screenSize.matches){
         this.isMobile = true;
