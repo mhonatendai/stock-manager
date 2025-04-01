@@ -17,6 +17,7 @@ import {MatChipsModule} from "@angular/material/chips";
 import { LoginComponent } from './login/login.component';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {FormsModule} from "@angular/forms";
     MatCardModule,
     MatChipsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

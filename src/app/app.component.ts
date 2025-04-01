@@ -1,37 +1,39 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { MatSidenav } from "@angular/material/sidenav";
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { NavigationEnd, Router } from "@angular/router";
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'shop-cart';
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   isMobile= true;
   isCollapsed = true;
-  isLoginPage = true;
-  initialEvaluationComplete = false;
+  isLoginPage: boolean = true;
+  loading: boolean = true;
 
 
   constructor(private observer: BreakpointObserver, private router: Router) {
   }
 
   ngOnInit() {
-    this.router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.isLoginPage = event.url === '/login';
-      this.initialEvaluationComplete = true;
+
+    console.log("This is a login page: {}",this.isLoginPage)
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isLoginPage = (event.url === '/login' || event.url === '/');
+        console.log("This is the url: {}",event.url)
+        console.log("This is a login page in sub: {}",this.isLoginPage)
+        this.loading = false; // Set loading to false once the router event is complete
+      }
     });
-    console.log("This is a login page: {}", this.isLoginPage)
-    console.log("This is a login page initialEvaluationComplete: {}", this.initialEvaluationComplete)
+
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
       if(screenSize.matches){
         this.isMobile = true;
@@ -50,4 +52,5 @@ export class AppComponent implements OnInit{
       this.isCollapsed = !this.isCollapsed;
     }
   }
+
 }

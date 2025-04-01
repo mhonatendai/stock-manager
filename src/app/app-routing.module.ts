@@ -6,7 +6,6 @@ import { ReceivestockComponent } from "./receivestock/receivestock.component";
 import { LoginComponent } from "./login/login.component";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'products', component: ProductsComponent },
