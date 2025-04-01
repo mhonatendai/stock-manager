@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatSidenav } from "@angular/material/sidenav";
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { NavigationEnd, Router } from "@angular/router";
@@ -23,14 +23,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    console.log("This is a login page: {}",this.isLoginPage)
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isLoginPage = (event.url === '/login' || event.url === '/');
-        console.log("This is the url: {}",event.url)
-        console.log("This is a login page in sub: {}",this.isLoginPage)
-        this.loading = false; // Set loading to false once the router event is complete
+        this.loading = false;
       }
     });
 
