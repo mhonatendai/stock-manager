@@ -10,8 +10,21 @@ mat-toolbar{
   z-index: 2;
 }
 
-mat-sidenav-container {
-  height:100%;
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.full-height-sidenav-container {
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+  background: red;
+}
+
+.mat-sidenav-content {
+  flex: 1 1 auto;
+  overflow: auto;
 }
 
 // Move the content down so that it won't be hidden by the toolbar

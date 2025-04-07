@@ -9,7 +9,6 @@ import { NavigationEnd, Router } from "@angular/router";
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  @HostBinding('class') hostClass = 'full-height-container';
   title = 'shop-cart';
 
   @ViewChild(MatSidenav)
