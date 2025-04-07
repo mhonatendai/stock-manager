@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from "@angular/material/sidenav";
 import { BreakpointObserver } from "@angular/cdk/layout";
 import { NavigationEnd, Router } from "@angular/router";
@@ -9,6 +9,7 @@ import { NavigationEnd, Router } from "@angular/router";
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  @HostBinding('class') hostClass = 'full-height-container';
   title = 'shop-cart';
 
   @ViewChild(MatSidenav)
