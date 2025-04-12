@@ -1,7 +1,8 @@
 import { Component, HostBinding, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from "@angular/material/sidenav";
-import { BreakpointObserver } from "@angular/cdk/layout";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import { NavigationEnd, Router } from "@angular/router";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -13,13 +14,14 @@ export class AppComponent implements OnInit {
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  isMobile= true;
+  isMobile= false;
   isCollapsed = true;
   isLoginPage: boolean = true;
   loading: boolean = true;
+  private readonly destroy = new Subject<void>();
 
 
-  constructor(private observer: BreakpointObserver, private router: Router) {
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {
   }
 
   ngOnInit() {
@@ -30,21 +32,20 @@ export class AppComponent implements OnInit {
       }
     });
 
-    this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
-      if(screenSize.matches){
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
-    });
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .pipe(takeUntil(this.destroy))
+      .subscribe(result => {
+        this.isMobile = result.matches;
+      });
   }
 
   toggleMenu() {
     if(this.isMobile){
       this.sidenav.toggle();
-      this.isCollapsed = false; // On mobile, the menu can never be collapsed
+      this.isCollapsed = false;
     } else {
-      this.sidenav.open(); // On desktop/tablet, the menu can never be fully closed
+      this.sidenav.open();
       this.isCollapsed = !this.isCollapsed;
     }
   }
