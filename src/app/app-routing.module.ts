@@ -7,6 +7,7 @@ import { LoginComponent } from "./login/login.component";
 import { ProductCategoriesComponent } from "./product-categories/product-categories.component";
 import { PurchaseOrdersComponent } from "./purchase-orders/purchase-orders.component";
 import { HandleReturnComponent } from "./handle-return/handle-return.component";
+import {StockAdjustmentComponent} from "./stock-adjustment/stock-adjustment.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'purchase-orders', component: PurchaseOrdersComponent },
   { path: 'receive-stock', component: ReceiveStockComponent },
-  { path: 'handle-return', component: HandleReturnComponent }
+  { path: 'handle-return', component: HandleReturnComponent },
+  { path: 'stock-adjustment', component: StockAdjustmentComponent }
 ];
 
 @NgModule({
