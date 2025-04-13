@@ -4,10 +4,10 @@ import {Car} from "../common/car-model";
 
 @Component({
   selector: 'app-employees',
-  templateUrl: './receivestock.component.html',
-  styleUrls: ['./receivestock.component.scss']
+  templateUrl: './receive-stock.component.html',
+  styleUrls: ['./receive-stock.component.scss']
 })
-export class ReceivestockComponent {
+export class ReceiveStockComponent {
 
 
   constructor(private carService: CarService) {

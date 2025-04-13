@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReceivestockComponent } from './receivestock.component';
+import { ReceiveStockComponent } from './receive-stock.component';
 
 describe('EmployeesComponent', () => {
-  let component: ReceivestockComponent;
-  let fixture: ComponentFixture<ReceivestockComponent>;
+  let component: ReceiveStockComponent;
+  let fixture: ComponentFixture<ReceiveStockComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ReceivestockComponent]
+      declarations: [ReceiveStockComponent]
     });
-    fixture = TestBed.createComponent(ReceivestockComponent);
+    fixture = TestBed.createComponent(ReceiveStockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
