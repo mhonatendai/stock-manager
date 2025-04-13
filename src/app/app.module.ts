@@ -20,6 +20,7 @@ import {FormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
+import { PurchaseOrdersComponent } from './purchase-orders/purchase-orders.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProductCategoriesComponent } from './product-categories/product-categor
     DashboardComponent,
     LoginComponent,
     ProductCategoriesComponent,
+    PurchaseOrdersComponent,
   ],
   imports: [
     BrowserModule,
