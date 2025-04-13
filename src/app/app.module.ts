@@ -19,6 +19,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {HttpClientModule} from "@angular/common/http";
+import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {HttpClientModule} from "@angular/common/http";
     ProductsComponent,
     DashboardComponent,
     LoginComponent,
+    ProductCategoriesComponent,
   ],
   imports: [
     BrowserModule,
