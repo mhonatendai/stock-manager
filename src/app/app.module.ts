@@ -21,6 +21,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 import { PurchaseOrdersComponent } from './purchase-orders/purchase-orders.component';
+import { HandleReturnComponent } from './handle-return/handle-return.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PurchaseOrdersComponent } from './purchase-orders/purchase-orders.compo
     LoginComponent,
     ProductCategoriesComponent,
     PurchaseOrdersComponent,
+    HandleReturnComponent,
   ],
   imports: [
     BrowserModule,
