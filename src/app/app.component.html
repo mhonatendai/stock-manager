@@ -28,28 +28,47 @@
           </a>
           <a mat-list-item routerLink="/products">
           <span class="entry">
+            <mat-icon>category</mat-icon>
+            <span *ngIf="!isCollapsed">Product Categories</span>
+          </span>
+          </a>
+          <a mat-list-item routerLink="/products">
+          <span class="entry">
             <mat-icon>list</mat-icon>
-            <span *ngIf="!isCollapsed">Product Lines</span>
+            <span *ngIf="!isCollapsed">Products</span>
+          </span>
+          </a>
+          <a mat-list-item routerLink="/products">
+          <span class="entry">
+            <mat-icon>shop_two</mat-icon>
+            <span *ngIf="!isCollapsed">Purchase Orders</span>
           </span>
           </a>
           <a mat-list-item routerLink="/receive-stock">
           <span class="entry">
-            <mat-icon>list</mat-icon>
+            <mat-icon>shopping_basket</mat-icon>
             <span *ngIf="!isCollapsed">Receive Stock</span>
           </span>
           </a>
           <a mat-list-item routerLink="/products">
           <span class="entry">
-            <mat-icon>list</mat-icon>
-            <span *ngIf="!isCollapsed">Add New Lines</span>
+            <mat-icon>assignment_returned</mat-icon>
+            <span *ngIf="!isCollapsed">Handle Return</span>
           </span>
           </a>
           <a mat-list-item routerLink="/products">
           <span class="entry">
-            <mat-icon>books</mat-icon>
+            <mat-icon>inventory</mat-icon>
+            <span *ngIf="!isCollapsed">Stock Adjustment</span>
+          </span>
+          </a>
+          <a mat-list-item routerLink="/products">
+          <span class="entry">
+            <mat-icon>assessment</mat-icon>
             <span *ngIf="!isCollapsed">Reports</span>
           </span>
           </a>
+
         </mat-nav-list>
       </mat-sidenav>
       <mat-sidenav-content class="main-sidenav-content">
